@@ -30,7 +30,7 @@ function getPixelsFromCanvasCtx(ctx) {
  * Previews the result of the left canvas to the right canvas
  * depending on dimensions
  */
-function preview() {
+function convert() {
 	//Get the dimension from select
 	let select = document.querySelector("#dimensions");
 	let dimensions = select.options[select.selectedIndex].value;
@@ -63,6 +63,21 @@ function preview() {
     console.log("Start", start);
     console.log("color draw", (endColorDraw-start)/1000)+"sec";
 
+}
+
+/**
+ * Optimize convert version 1
+ */
+function convert2(){
+
+}
+
+function download() {
+    let download = document.getElementById("download");
+    let image = canvasTo.toDataURL("image/png")
+        .replace("image/png", "image/octet-stream");
+    download.setAttribute("href", image);
+    //download.setAttribute("download","archive.png");
 }
 
 function getMeanColorOfPixels(pixels) {
